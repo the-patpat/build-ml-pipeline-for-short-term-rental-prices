@@ -48,7 +48,7 @@ def go(args):
     )
 
     artifact.add_file('clean_sample.csv')
-    run.log_artifact()
+    run.log_artifact(artifact)
 
 
 
