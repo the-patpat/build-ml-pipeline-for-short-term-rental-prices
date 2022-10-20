@@ -63,15 +63,14 @@ def go(config: DictConfig):
                     "src",
                     "basic_cleaning"),
                 "main",
-                parameters={
-                    "input_artifact": "sample.csv:latest",
-                    "output_artifact": "clean_sample.csv",
-                    "output_type": "clean_sample",
-                    "output_description": "Data with outliers "+
-                                        "and null values removed",
-                    "min_price": config['etl']['min_price'],
-                    "max_price": config['etl']['max_price']
-                },
+            parameters={
+            "input_artifact": config['etl']['cleaning']['input_artifact'],
+            "output_artifact": config['etl']['cleaning']['output_artifact'],
+            "output_type": config['etl']['cleaning']['output_type'],
+            "output_description": config['etl']['cleaning']['output_description'],
+            "min_price": config['etl']['min_price'],
+            "max_price": config['etl']['max_price'],
+        },
             )
 
         if "data_check" in active_steps:

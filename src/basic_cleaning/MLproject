@@ -6,29 +6,32 @@ entry_points:
     parameters:
 
       input_artifact:
-        description: ## ADD DESCRIPTION
+        description: >
+                "Name of the W&B artifact that this step consumes,
+                containing the data after the EDA step"
         type: string
 
       output_artifact:
-        description: ## ADD DESCRIPTION
+        description: >
+                "Name of the clean data W&B artifact that this step
+                produces"
         type: string
 
       output_type:
-        description: ## ADD DESCRIPTION
+        description: Type of the output artifact, e.g. clean_data
         type: string
 
       output_description:
-        description: ## ADD DESCRIPTION
+        description: Description for the output artifact
         type: string
 
       min_price:
-        description: ## ADD DESCRIPTION
+        description: Minimum night price to consider, in USD
         type: string
 
       max_price:
-        description: ## ADD DESCRIPTION
+        description: Maximum night price to consider, in USD
         type: string
-
 
     command: >-
         python run.py  --input_artifact {input_artifact}  --output_artifact {output_artifact}  --output_type {output_type}  --output_description {output_description}  --min_price {min_price}  --max_price {max_price} 
