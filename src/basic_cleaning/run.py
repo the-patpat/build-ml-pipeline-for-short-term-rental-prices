@@ -36,6 +36,11 @@ def go(args):
     logger.info("Converting string date to datetime object")
     airbnb_df['last_review'] = pd.to_datetime(airbnb_df['last_review'])
 
+    #Drop rows outside of NYC boundaries
+    idx = airbnb_df['longitude'].between(-74.25, -73.50) & \
+        airbnb_df['latitude'].between(40.5, 41.2)
+    airbnb_df = airbnb_df[idx].copy()
+
     # Save to disk
     logger.info("Saving dataframe to disk")
     airbnb_df.to_csv('clean_sample.csv', index=False)
